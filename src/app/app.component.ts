@@ -24,6 +24,6 @@ export class AppComponent {
   }
 
   get isAdmin() {
-      return this.authenticationService.currentUser && this.authenticationService.currentUser;
+      return this.currentUser.role == 'ADMINISTRADOR';
   }
 }
