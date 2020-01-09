@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-primary" *ngIf="currentUser">
   <div class="navbar-nav mr-auto">
       <a class="nav-item nav-link active" routerLink="/">Home</a>
-      <a class="nav-item nav-link activa" *ngIf="isAdmin">Nueva Cartelera</a>
+      <a class="nav-item nav-link activa" *ngIf="isAdmin" routerLink="/addCartelera" routerLinkActive="router-link-active" >Nueva Cartelera</a>
       <a class="nav-item nav-link float-right" (click)="logout()">Salir</a>
   </div>
 </nav>
