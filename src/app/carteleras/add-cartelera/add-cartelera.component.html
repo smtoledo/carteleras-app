@@ -1,0 +1,32 @@
+<h3>> Nueva Cartelera</h3>
+<br>
+<form #formCartelera="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="titulo">Titulo</label>
+      <input type="email" class="form-control" id="titulo" name="titulo" [(ngModel)]="model.titulo" placeholder="Titulo">
+    </div>
+    <div class="form-group col-md-12">
+      <label for="descripcion">Descripción</label>
+      <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="model.descripcion" placeholder="Descripción">
+    </div>
+    <div class="form-group col-md-12">
+      <label for="tiposCartelera">Tipo de Cartelera</label>
+      <select class="form-control custom-select" id="tipoCartelera" name="tipoCartelera" [(ngModel)]="model.tipoCartelera">
+        <option *ngFor="let tipo of tiposCartelera" [value]="tipo">{{tipo}}</option>
+      </select>    
+    </div>
+    <!--<div class="form-group col-md-12">
+      <label for="input3">Asignatura</label>
+      <select class="form-control custom-select" id="input3">
+        <option selected>Elija una Asignatura</option>
+        <option value="1">ADMINISTRATIVA</option>
+        <option value="2">EDUCATIVA</option>
+        <option value="3">INSTITUCIONAL</option>
+      </select>    
+    </div>--> 
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary" [disabled]="!formCartelera.form.valid">Guardar</button>
+  <button type="reset" class="waves-effect waves-light btn btn--color-fi" (click)="goBack()">Cancelar</button>
+</form>

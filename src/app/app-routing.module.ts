@@ -8,6 +8,7 @@ import { AddCarteleraComponent } from './carteleras/add-cartelera/add-cartelera.
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'addCartelera', component: AddCarteleraComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];

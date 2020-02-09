@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { routing } from './app-routing.module';
@@ -18,6 +18,7 @@ import { AddCarteleraComponent } from './carteleras/add-cartelera/add-cartelera.
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     routing,
     ReactiveFormsModule,
     HttpClientModule

@@ -3,4 +3,5 @@ export class Cartelera {
     titulo: string;
     descripcion: string;
     tipoCartelera: string;
+    asignatura?: string;
 }
