@@ -8,11 +8,11 @@ import { Cartelera } from 'src/app/_models/Cartelera';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
-  selector: 'app-add-cartelera',
-  templateUrl: './add-cartelera.component.html',
-  styleUrls: ['./add-cartelera.component.scss']
+  selector: 'app-cartelera-new',
+  templateUrl: './cartelera-new.component.html',
+  styleUrls: ['./cartelera-new.component.scss']
 })
-export class AddCarteleraComponent implements OnInit {
+export class CarteleraNewComponent implements OnInit {
 
   //loading = false;
   submitted = false;
@@ -43,3 +43,4 @@ export class AddCarteleraComponent implements OnInit {
   }
 
 }
+

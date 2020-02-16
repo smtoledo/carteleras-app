@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { AuthGuard } from './_guards';
-import { AddCarteleraComponent } from './carteleras/add-cartelera/add-cartelera.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CarteleraNewComponent } from './cartelera/cartelera-new/cartelera-new.component';
+import { CartelerasHomeComponent } from './carteleras-home/carteleras-home.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: CartelerasHomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'addCartelera', component: AddCarteleraComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: '' }
+  { path: 'home', component: CartelerasHomeComponent },
+  //{ path: 'cartelera', component: CarteleraNewComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: 'cartelera/new', pathMatch: 'full' }
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+@NgModule({
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

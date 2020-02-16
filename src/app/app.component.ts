@@ -26,4 +26,8 @@ export class AppComponent {
   get isAdmin() {
       return this.currentUser.role == 'ADMINISTRADOR';
   }
+
+  get isLogged() {
+      return this.currentUser != null;
+  }
 }

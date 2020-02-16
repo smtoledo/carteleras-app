@@ -1,9 +1,10 @@
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-primary" *ngIf="currentUser">
+<nav class="navbar navbar-expand navbar-dark bg-primary"><!--*ngIf="currentUser">-->
   <div class="navbar-nav mr-auto">
-      <a class="nav-item nav-link active" routerLink="/">Home</a>
-      <a class="nav-item nav-link activa" *ngIf="isAdmin" routerLink="/addCartelera" routerLinkActive="router-link-active" >Nueva Cartelera</a>
-      <a class="nav-item nav-link float-right" (click)="logout()">Salir</a>
+      <a class="nav-item nav-link active" routerLink="">Home</a>
+      <a class="nav-item nav-link active" routerLink="login">Iniciar Sesión</a>
+      <a class="nav-item nav-link active" routerLink="cartelera/new" routerLinkActive="active" >Nueva Cartelera</a>
+      <a class="nav-item nav-link active float-right" (click)="logout()">Salir</a>
   </div>
 </nav>
 

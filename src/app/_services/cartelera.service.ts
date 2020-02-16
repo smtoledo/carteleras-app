@@ -11,7 +11,7 @@ export class CarteleraService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<Cartelera[]>(`${env.url}/carteleras`);
+        return this.http.get<Cartelera[]>(`${env.url}/carteleras_publicas`);
     }
 
     getTiposCartelera(): Observable<string[]> {

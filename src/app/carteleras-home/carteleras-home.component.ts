@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CarteleraService } from '../_services';
 import { Cartelera } from '../_models';
+import { CarteleraService } from '../_services';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-carteleras-home',
+  templateUrl: './carteleras-home.component.html',
+  styleUrls: ['./carteleras-home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class CartelerasHomeComponent implements OnInit {
 
   carteleras: Cartelera[] = [];
   error: string = '';
@@ -31,5 +31,6 @@ export class HomeComponent implements OnInit {
               }
           )
   }
+
 
 }

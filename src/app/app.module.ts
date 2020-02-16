@@ -3,25 +3,29 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { routing } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { AddCarteleraComponent } from './carteleras/add-cartelera/add-cartelera.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CartelerasHomeComponent } from './carteleras-home/carteleras-home.component';
+import { CarteleraNewComponent } from './cartelera/cartelera-new/cartelera-new.component';
+import { AppRoutingModule } from './app-routing.module'
+import { CarteleraModule } from './cartelera/cartelera.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
-    AddCarteleraComponent
+    CarteleraNewComponent,
+    PageNotFoundComponent,
+    CartelerasHomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    routing,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    CarteleraModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
