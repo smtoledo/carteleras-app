@@ -15,7 +15,6 @@ import { CarteleraModule } from './cartelera/cartelera.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    CarteleraNewComponent,
     PageNotFoundComponent,
     CartelerasHomeComponent
   ],

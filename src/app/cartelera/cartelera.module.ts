@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { CarteleraRoutingModule } from './cartelera-routing.module';
 import { CarteleraNewComponent } from './cartelera-new/cartelera-new.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CarteleraNewComponent
+  ],
   imports: [
     CommonModule,
-    CarteleraRoutingModule
+    CarteleraRoutingModule,
+    FormsModule
   ]
 })
 export class CarteleraModule { }
