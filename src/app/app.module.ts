@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { CartelerasHomeComponent } from './carteleras-home/carteleras-home.component';
 import { AppRoutingModule } from './app-routing.module'
 import { CarteleraModule } from './cartelera/cartelera.module';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CarteleraModule } from './cartelera/cartelera.module';
     BrowserModule,
     FormsModule,
     CarteleraModule, //el orden importa!!
+    UsuarioModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule
