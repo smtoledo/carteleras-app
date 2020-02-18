@@ -1,4 +1,4 @@
-<div *ngFor="let usuario of usuarios" class="col s12">
+<!--<div *ngFor="let usuario of usuarios" class="col s12">
   <div class="card horizontal hoverable">
     <div class="card-image">
     </div>
@@ -11,4 +11,33 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
+<div class="container"> 
+    <h1>
+      <span>Usuarios</span>
+      <button class='btn btn-primary float-right' routerLink="/usuario/new">Nuevo Usuario</button>
+    </h1>
+    
+      <table mdbTable striped="true" class="table table-striped table-responsive-md btn-table">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Rol</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let usuario of usuarios">
+            <td>{{usuario.username}}</td>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.apellido}}</td>
+            <td>{{usuario.perfil}}</td>
+            <td><button mdbBtn color="primary" outline="true" size="sm" mdbWavesEffect type="button" class="m-0">Editar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    
+</div> 
+

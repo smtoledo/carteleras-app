@@ -24,7 +24,7 @@ export class AppComponent {
   }
 
   get isAdmin() {
-      return this.currentUser.role == 'ADMINISTRADOR';
+      return this.currentUser.perfil == 'ADMINISTRADOR';
   }
 
   get isLoggedIn() {
