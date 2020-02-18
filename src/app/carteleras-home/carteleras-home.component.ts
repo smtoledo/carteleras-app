@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Cartelera } from '../_models';
-import { CarteleraService } from '../_services';
+import { Cartelera, User } from '../_models';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CarteleraService, AuthenticationService } from '../_services';
 
 @Component({
   selector: 'app-carteleras-home',
@@ -12,13 +13,19 @@ export class CartelerasHomeComponent implements OnInit {
   carteleras: Cartelera[] = [];
   error: string = '';
   loading: boolean = false;
+  currentUser: User;
 
-  constructor(private carteleraService: CarteleraService) { }
-
+  constructor(
+      private router: Router,
+      private authenticationService: AuthenticationService,
+      private carteleraService: CarteleraService, private activatedRoute: ActivatedRoute
+  ) {
+      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  }
   ngOnInit() {
 
       this.loading = true;
-      this.carteleraService.getAll()
+      this.carteleraService.getCartelerasPublicas()
           .subscribe(
               data => {
                   this.loading = false;
@@ -32,5 +39,7 @@ export class CartelerasHomeComponent implements OnInit {
           )
   }
 
-
+  get isLoggedIn() {
+    return this.currentUser != null;
+  }
 }

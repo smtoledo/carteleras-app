@@ -20,14 +20,14 @@ export class AppComponent {
 
   logout() {
       this.authenticationService.logout();
-      this.router.navigate(['/login']);
+      this.router.navigate(['home']);
   }
 
   get isAdmin() {
       return this.currentUser.role == 'ADMINISTRADOR';
   }
 
-  get isLogged() {
+  get isLoggedIn() {
       return this.currentUser != null;
   }
 }

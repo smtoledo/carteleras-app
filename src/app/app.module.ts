@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CartelerasHomeComponent } from './carteleras-home/carteleras-home.component';
-import { CarteleraNewComponent } from './cartelera/cartelera-new/cartelera-new.component';
 import { AppRoutingModule } from './app-routing.module'
 import { CarteleraModule } from './cartelera/cartelera.module';
 
@@ -21,10 +20,10 @@ import { CarteleraModule } from './cartelera/cartelera.module';
   imports: [
     BrowserModule,
     FormsModule,
+    CarteleraModule, //el orden importa!!
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule,
-    CarteleraModule
+    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

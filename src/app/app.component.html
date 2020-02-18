@@ -1,10 +1,11 @@
 <!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-primary"><!--*ngIf="currentUser">-->
   <div class="navbar-nav mr-auto">
-      <a class="nav-item nav-link active" routerLink="">Home</a>
-      <a class="nav-item nav-link active" routerLink="login">Iniciar Sesión</a>
-      <a class="nav-item nav-link active" routerLink="cartelera/new" routerLinkActive="active" >Nueva Cartelera</a>
-      <a class="nav-item nav-link active float-right" (click)="logout()">Salir</a>
+      <a class="nav-item nav-link active" routerLink="/">Home</a>
+      <a *ngIf="!isLoggedIn" class="nav-item nav-link active" routerLink="/login">Iniciar Sesión</a>
+      <a *ngIf="isLoggedIn && isAdmin" class="nav-item nav-link active" routerLink="cartelera/new" routerLinkActive="active">Nueva Cartelera</a>
+      <p *ngIf="isLoggedIn" class="nav-item nav-link text-warning">{{currentUser.username}}</p>
+      <a *ngIf="isLoggedIn" class="nav-item nav-link active" (click)="logout()"> (Cerrar Sesión)</a>
   </div>
 </nav>
 

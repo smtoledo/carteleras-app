@@ -34,12 +34,12 @@ export class CarteleraNewComponent implements OnInit {
       this.carteleraService.crearCartelera(this.model).subscribe(
         cartelera => {
           this.model = new Cartelera();
-          this.router.navigate(['/home']);
+          this.router.navigate(['']);
         });
   }
 
   goBack(): void{
-    this.location.back();
+    this.router.navigate(['']);
   }
 
 }

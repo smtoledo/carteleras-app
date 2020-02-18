@@ -10,8 +10,7 @@ const appRoutes: Routes = [
   { path: '', component: CartelerasHomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: CartelerasHomeComponent },
-  //{ path: 'cartelera', component: CarteleraNewComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: 'cartelera/new', pathMatch: 'full' }
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
