@@ -27,4 +27,12 @@ export class CarteleraService {
         return this.http.get<any>(`${env.url}/carteleras/`+id);
     }
 
+    suscribirUsuario(id: number, alumno: User){
+        return this.http.post<User[]>(`${env.url}/carteleras/`+id, alumno);
+    }
+
+    getSuscriptores(id: number){
+        return this.http.get<User[]>(`${env.url}/carteleras/`+id);
+    }
+    
 }

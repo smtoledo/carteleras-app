@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CarteleraService } from 'src/app/_services';
+import { CarteleraService, AuthenticationService } from 'src/app/_services';
 import { ActivatedRoute } from '@angular/router';
-import { Cartelera, Publicacion } from 'src/app/_models';
+import { Cartelera, Publicacion, User } from 'src/app/_models';
 
 @Component({
   selector: 'app-cartelera-view',
@@ -12,9 +12,14 @@ export class CarteleraViewComponent implements OnInit {
 
   cartelera_actual: Cartelera;
   publicaciones: Publicacion[];
-
-  constructor(private carteleraService: CarteleraService, 
-    private activatedRoute: ActivatedRoute) { }
+  suscriptores: User[];
+  currentUser: User;
+  
+  constructor(private carteleraService: CarteleraService,
+    private authenticationService: AuthenticationService,
+    private activatedRoute: ActivatedRoute) {
+      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+     }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
@@ -26,4 +31,25 @@ export class CarteleraViewComponent implements OnInit {
     });
   }
 
+  get isLoggedIn() {
+    return this.currentUser != null;
+  }
+
+  isRol(rol: string) {
+    return this.currentUser.perfil == rol;
+  }
+
+  get isSuscribed() {
+    return true;
+  }
+
+  suscribirse(on) {
+    if (on){
+      this.carteleraService.suscribirUsuario(
+        this.cartelera_actual.id, this.currentUser).subscribe(
+          data => { this.suscriptores = data; }
+        );
+    }
+  }
+  
 }
