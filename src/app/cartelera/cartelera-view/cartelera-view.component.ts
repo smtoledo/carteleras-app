@@ -47,8 +47,8 @@ export class CarteleraViewComponent implements OnInit {
     alert("suscriptos");
   }
   
-  suscribirse(on) {
-    if (on){
+  suscribirse(action) {
+    if (action){
       this.carteleraService.suscribirUsuario(
         this.cartelera_actual.id, this.currentUser).subscribe(
           data => { this.suscriptores = data; }

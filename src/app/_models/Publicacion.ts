@@ -8,4 +8,5 @@ export class Publicacion {
     contenido: string;
     ultimaModificacion: Date;
     alta: Date;
+    autor?: User;
 }

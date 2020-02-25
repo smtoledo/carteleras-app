@@ -13,4 +13,8 @@ export class PublicacionService {
   getPublicaciones(id: number) {
     return this.http.get<Publicacion[]>(`${env.url}/carteleras/`+id+`/publicaciones`);
   }
+
+  getPublicacion(cartelera: number, publicacion: number) {
+    return this.http.get<Publicacion>(`${env.url}/carteleras/`+cartelera+`/publicaciones/`+publicacion);
+  }
 }
