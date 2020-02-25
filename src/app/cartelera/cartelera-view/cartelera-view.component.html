@@ -5,19 +5,21 @@
       <h1 class="header center ">{{cartelera_actual.titulo}}</h1>
       <h5 class="light center">{{cartelera_actual.descripcion}}</h5>
       <div *ngIf="isLoggedIn && isRol('ALUMNO')">
-        <em *ngIf="isSuscribed"><a (click)="suscribirse(true)"> <u>suscribe</u> </a></em>
-        <em *ngIf="!isSuscribed"><a (click)="suscribirse(false)"> <u>unsuscribe</u> </a></em>
+        <em *ngIf="isSuscribed"><a (click)="suscribirse(true)"> <u>SUSCRIBE</u> </a></em>
+        <em *ngIf="!isSuscribed"><a (click)="suscribirse(false)"> <u>UNSUSCRIBE</u> </a></em>
       </div>
     </div>
 
     <div class="col s12 m8">
-      <!--<billboard-publication-list></billboard-publication-list>-->
+      <app-publicacion-list></app-publicacion-list>
     </div>
 
     <div class="col s12 m6 l4" *ngIf="isLoggedIn">
       <ul class="collection">
-          <li class="collection-item" *ngIf="isRol('ADMINISTRADOR')"><a routerLink="publicacion-new">+ Publicación</a></li>
-          <li class="collection-item" *ngIf="isRol('DOCENTE')"><a (click)="verSuscriptos()">Suscriptores</a></li>
+          <li class="collection-item" *ngIf="isRol('ADMINISTRADOR')">
+            <a routerLink="publicacion-new">+ Publicación</a></li>
+          <li class="collection-item" *ngIf="isRol('DOCENTE') || isRol('ADMINISTRADOR')">
+            <a (click)="verSuscriptos()">+ Ver Suscriptores</a></li>
       </ul>
 
       <!--<app-billboard-suscribed-list></app-billboard-suscribed-list>-->

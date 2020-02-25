@@ -2,10 +2,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
   <div class="navbar-nav mr-auto">
-      <!--<a class="nav-item nav-link active" routerLink="">Home</a>-->
       <a *ngIf="!isLoggedIn" class="nav-item nav-link active" routerLink="/login">Iniciar Sesión</a>
-      <a *ngIf="isLoggedIn && isAdmin" class="nav-item nav-link active" routerLink="cartelera/new" routerLinkActive="active">Nueva Cartelera</a>
-      <a *ngIf="isLoggedIn && isAdmin" class="nav-item nav-link active" routerLink="usuario/list" routerLinkActive="active">Usuarios</a>
+      <a *ngIf="isLoggedIn && isAdmin" class="nav-item nav-link active" routerLink="cartelera/new">Nueva Cartelera</a>
+      <a *ngIf="isLoggedIn && isAdmin" class="nav-item nav-link active" routerLink="usuario/list">Usuarios</a>
   </div>
   </div>
   <div class="mx-auto order-0">

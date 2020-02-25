@@ -4,7 +4,7 @@ import { environment as env } from '../../environments/environment';
 
 import { Cartelera } from '../_models/Cartelera';
 import { Observable } from 'rxjs/internal/Observable';
-import { User } from '../_models';
+import { User, Publicacion } from '../_models';
 
 @Injectable({ providedIn: 'root' })
 export class CarteleraService {
@@ -27,12 +27,21 @@ export class CarteleraService {
         return this.http.get<any>(`${env.url}/carteleras/`+id);
     }
 
+    /** -------- SUSCRIPTORES ------------------------------------------- */
     suscribirUsuario(id: number, alumno: User){
-        return this.http.post<User[]>(`${env.url}/carteleras/`+id, alumno);
+        return this.http.post<User[]>(`${env.url}/carteleras/`+id+`/interesados`, alumno);
     }
 
     getSuscriptores(id: number){
-        return this.http.get<User[]>(`${env.url}/carteleras/`+id);
+        return this.http.get<User[]>(`${env.url}/carteleras/`+id+`/interesados`);
     }
     
+    /** -------- PUBLICACIONES ------------------------------------------- */
+    agregarPublicacion(id: number, publicacion: Publicacion){
+        return this.http.post<Publicacion[]>(`${env.url}/carteleras/`+id+`/publicaciones`, publicacion);
+    }
+
+    getPublicacion(id: number){
+        return this.http.get<Publicacion[]>(`${env.url}/carteleras/`+id+`/publicaciones`);
+    }
 }

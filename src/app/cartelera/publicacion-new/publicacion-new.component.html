@@ -1,3 +1,17 @@
-<p>
-  publicacion-new works!
-</p>
+<h3>> Agregar Publicación</h3>
+<br>
+<form #formPublicacion="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="titulo">Titulo</label>
+      <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="model.titulo" placeholder="Titulo" required>
+    </div>
+    <div class="form-group col-md-12">
+      <label for="contenido">Contenido</label>
+      <textarea class="form-control" id="contenido" name="contenido" [(ngModel)]="model.contenido" placeholder="Contenido" required></textarea>
+    </div>    
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary" [disabled]="!formPublicacion.form.valid">Guardar</button>
+  <button type="reset" class="waves-effect waves-light btn btn--color-fi" (click)="goBack()">Cancelar</button>
+</form>

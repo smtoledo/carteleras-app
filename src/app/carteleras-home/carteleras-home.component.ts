@@ -36,7 +36,7 @@ export class CartelerasHomeComponent implements OnInit {
                   this.loading = false;
                   console.error(error);
               }
-          )
+          );
   }
 
   get isLoggedIn() {

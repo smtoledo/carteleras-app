@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class UsuarioNewComponent implements OnInit {
 
   submitted = false;
-  returnUrl: string;
   error = '';
   perfiles: string[];
   model = new User();

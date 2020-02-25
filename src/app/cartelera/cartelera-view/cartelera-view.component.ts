@@ -43,6 +43,10 @@ export class CarteleraViewComponent implements OnInit {
     return true;
   }
 
+  verSuscriptos() {
+    alert("suscriptos");
+  }
+  
   suscribirse(on) {
     if (on){
       this.carteleraService.suscribirUsuario(
