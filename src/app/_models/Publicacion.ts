@@ -6,5 +6,6 @@ export class Publicacion {
     id: number;
     titulo: string;
     contenido: string;
-    comentarios?: Comentario[];
+    ultimaModificacion: Date;
+    alta: Date;
 }
