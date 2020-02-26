@@ -2,7 +2,8 @@
   <div class="card">
     <div class="card-header">{{publicacion.titulo}}</div>
     <div class="card-body">{{publicacion.contenido}}</div>
-    <a routerLink="publicacion/{{publicacion.id}}" class="card-link">Ir a publicación</a>
+    <a routerLink="publicacion/{{publicacion.id}}" class="card-link ml-4 mb-2">Ir a publicación</a>
     <div class="card-footer">{{publicacion.ultimaModificacion | date:'medium' }}</div>
   </div>
+  <hr>
 </div>
