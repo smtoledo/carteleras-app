@@ -4,7 +4,7 @@ import { Publicacion } from './Publicacion';
 export class Comentario {
     id: number;
     contenido: string;
-    fecha: Date;
+    alta: Date;
     autor: User;
     publicacion: Publicacion;
 }
