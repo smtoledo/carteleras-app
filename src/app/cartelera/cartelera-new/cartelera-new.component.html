@@ -15,16 +15,7 @@
       <select class="form-control custom-select" id="tipoCartelera" name="tipoCartelera" [(ngModel)]="model.tipoCartelera" required>
         <option *ngFor="let tipo of tiposCartelera" [value]="tipo">{{tipo}}</option>
       </select>    
-    </div>
-    <!--<div class="form-group col-md-12">
-      <label for="input3">Asignatura</label>
-      <select class="form-control custom-select" id="input3">
-        <option selected>Elija una Asignatura</option>
-        <option value="1">ADMINISTRATIVA</option>
-        <option value="2">EDUCATIVA</option>
-        <option value="3">INSTITUCIONAL</option>
-      </select>    
-    </div>--> 
+    </div> 
   </div>
   <br>
   <button type="submit" class="btn btn-primary" [disabled]="!formCartelera.form.valid">Guardar</button>

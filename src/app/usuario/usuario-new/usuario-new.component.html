@@ -27,7 +27,7 @@
       <input type="email" class="form-control" id="email" name="email" [(ngModel)]="model.email" placeholder="E-mail" required>
     </div>
     <div class="form-group col-md-12">
-      <label for="perfil">Tipo de Cartelera</label>
+      <label for="perfil">Perfil</label>
       <select class="form-control custom-select" id="perfil" name="perfil" [(ngModel)]="model.perfil" required>
         <option *ngFor="let perfil of perfiles" [value]="perfil">{{perfil}}</option>
       </select>    
