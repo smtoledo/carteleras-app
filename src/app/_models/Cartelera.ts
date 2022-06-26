@@ -8,4 +8,5 @@ export class Cartelera {
     asignatura?: string;
     alta: Date;
     autor?: User;
+    esPreferida: boolean;
 }

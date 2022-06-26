@@ -39,4 +39,8 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
+
+    // hasRole(roles: string[]) {        
+    //     return (JSON.parse(localStorage.getItem('currentUser')))
+    // }
 }

@@ -32,7 +32,7 @@
  <div class="container">
   <div class="row">
     <!-- Post Content Column -->
-    <div class="col-lg-8">
+    <div class="col-sm-9" *ngIf="cartelera_actual">
 
       <!-- Title -->
       <h1 class="mt-4">{{cartelera_actual.titulo}}</h1>
@@ -53,14 +53,17 @@
     </div>
 
     <!-- Sidebar Widgets Column -->
-    <div class="col-md-4">
+    <div class="col-sm-3">
 
       <!-- Search Widget -->
-      <div class="card my-4">
+      <div class="card my-3">
         <h5 class="card-header">Acciones</h5>
         <div class="card-body">
           <div class="input-group">
             <span class="input-group-btn">
+              <button class="btn btn-primary" type="button" *ngIf="!yaSuscrito()" (click)="suscribirse(true)">Suscribirse</button>
+              <button class="btn btn-primary" type="button" *ngIf="yaSuscrito()" (click)="suscribirse(false)">Desuscribirse</button>
+              <hr>
               <button class="btn btn-primary" type="button" routerLink="publicacion-new">Nueva Publicación</button>
               <hr>
               <button class="btn btn-primary" type="button" (click)="verSuscriptos()">Ver Suscriptos</button>
@@ -72,7 +75,7 @@
    
     <hr>
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-sm-12">
         <h3 class="my-4 ml-4">Publicaciones</h3>
         <app-publicacion-list></app-publicacion-list>
       </div>

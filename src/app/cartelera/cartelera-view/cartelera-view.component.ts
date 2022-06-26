@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarteleraService, AuthenticationService } from 'src/app/_services';
+import { CarteleraService, AuthenticationService, UsuarioService } from 'src/app/_services';
 import { ActivatedRoute } from '@angular/router';
 import { Cartelera, Publicacion, User } from 'src/app/_models';
 
@@ -16,6 +16,7 @@ export class CarteleraViewComponent implements OnInit {
   currentUser: User;
   
   constructor(private carteleraService: CarteleraService,
+    private usuarioService: UsuarioService,
     private authenticationService: AuthenticationService,
     private activatedRoute: ActivatedRoute) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
@@ -47,13 +48,34 @@ export class CarteleraViewComponent implements OnInit {
     alert("suscriptos");
   }
   
+  updateCurrentUserInfo(cartelera_id, action){
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (action){
+      currentUser.preferidas.push(cartelera_id);
+    }else{
+      let index = currentUser.preferidas.indexOf(cartelera_id);
+      if (index > -1) {
+        currentUser.preferidas.splice(index, 1);
+      }
+    }
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  }
+
   suscribirse(action) {
     if (action){
-      this.carteleraService.suscribirUsuario(
-        this.cartelera_actual.id, this.currentUser).subscribe(
-          data => { this.suscriptores = data; }
+      this.usuarioService.suscribirCartelera(this.cartelera_actual, this.currentUser.username).subscribe(
+          data => { this.currentUser = data; }
+        );
+    }else{
+      this.usuarioService.desuscribirCartelera(this.cartelera_actual, this.currentUser.username).subscribe(
+          data => { this.currentUser = data; }
         );
     }
+    this.updateCurrentUserInfo(this.cartelera_actual.id, action);
+  }
+
+  yaSuscrito(){
+    return (this.currentUser.preferidas.indexOf(this.cartelera_actual.id) > -1);
   }
   
 }

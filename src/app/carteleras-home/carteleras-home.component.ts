@@ -11,6 +11,8 @@ import { CarteleraService, AuthenticationService } from '../_services';
 export class CartelerasHomeComponent implements OnInit {
 
   carteleras: Cartelera[] = [];
+  cartelerasFavUsuario: Cartelera[] = [];
+  cartelerasUsuario: Cartelera[] = [];
   error: string = '';
   loading: boolean = false;
   currentUser: User;
@@ -25,7 +27,8 @@ export class CartelerasHomeComponent implements OnInit {
   ngOnInit() {
 
       this.loading = true;
-      this.carteleraService.getCartelerasPublicas()
+      if(this.currentUser == null){
+        this.carteleraService.getCartelerasPublicas()
           .subscribe(
               data => {
                   this.loading = false;
@@ -37,6 +40,28 @@ export class CartelerasHomeComponent implements OnInit {
                   console.error(error);
               }
           );
+      }else{
+        /** carteleras no suscriptas por usuario */
+        this.carteleraService.getCartelerasPorUsuario()
+          .subscribe(
+              data => {
+                  this.loading = false;
+                  this.cartelerasUsuario = data;
+                  
+                  /** carteleras suscriptas por usuario */
+                  this.carteleraService.getCartelerasFavPorUsuario()
+                    .subscribe(
+                      data => { 
+                        this.cartelerasFavUsuario = data;
+                      });
+              },
+              error => {
+                  this.error = 'No se pudieron cargar las carteleras';
+                  this.loading = false;
+                  console.error(error);
+              }
+          );
+      }
   }
 
   get isLoggedIn() {

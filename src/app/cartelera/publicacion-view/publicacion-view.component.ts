@@ -59,4 +59,8 @@ export class PublicacionViewComponent implements OnInit {
     }
   }
 
+  commentariosSortedBy(prop: string) {
+    return this.comentarios.sort((a, b) => a[prop] < b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
+  }
+  
 }
