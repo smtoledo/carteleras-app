@@ -34,7 +34,8 @@
             <td>{{usuario.nombre}}</td>
             <td>{{usuario.apellido}}</td>
             <td>{{usuario.perfil}}</td>
-            <td><button mdbBtn color="primary" outline="true" size="sm" mdbWavesEffect type="button" class="m-0">Editar</button></td>
+            <td><button class='btn btn-success float-right' [routerLink]="['/usuario/edit/',usuario.id]">Editar</button></td>
+            <td><button class='btn btn-warning float-right' routerLink="/usuario/delete">Anular</button></td>
           </tr>
         </tbody>
       </table>

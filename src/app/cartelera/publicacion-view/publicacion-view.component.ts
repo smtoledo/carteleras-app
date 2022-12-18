@@ -20,7 +20,9 @@ export class PublicacionViewComponent implements OnInit {
   
   constructor(private authenticationService: AuthenticationService,
     private activatedRoute: ActivatedRoute,
-    private publicacionService: PublicacionService) { }
+    private publicacionService: PublicacionService) {
+      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+     }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
@@ -63,4 +65,7 @@ export class PublicacionViewComponent implements OnInit {
     return this.comentarios.sort((a, b) => a[prop] < b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
   }
   
+  isRol(rol_name) {
+    return (this.currentUser.perfil == rol_name);
+  }
 }

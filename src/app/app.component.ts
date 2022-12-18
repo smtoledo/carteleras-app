@@ -23,8 +23,9 @@ export class AppComponent {
       this.router.navigate(['home']);
   }
 
-  get isAdmin() {
-      return this.currentUser.perfil == 'ADMINISTRADOR';
+  isRol(rol_name) {
+      debugger;
+    return (this.currentUser.perfil == rol_name);
   }
 
   get isLoggedIn() {

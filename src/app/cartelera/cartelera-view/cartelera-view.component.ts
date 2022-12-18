@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CarteleraService, AuthenticationService, UsuarioService } from 'src/app/_services';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Cartelera, Publicacion, User } from 'src/app/_models';
+import { SeguidoresListComponent } from 'src/app/seguidores-list/seguidores-list.component';
 
 @Component({
   selector: 'app-cartelera-view',
@@ -14,11 +16,13 @@ export class CarteleraViewComponent implements OnInit {
   publicaciones: Publicacion[];
   suscriptores: User[];
   currentUser: User;
+  suscription: boolean = false;
   
   constructor(private carteleraService: CarteleraService,
     private usuarioService: UsuarioService,
     private authenticationService: AuthenticationService,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    public dialog: MatDialog) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
      }
 
@@ -26,7 +30,11 @@ export class CarteleraViewComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
         this.carteleraService.getCartelera(params['id']).subscribe(
-          data => { this.cartelera_actual = data; }
+          data => { 
+            this.cartelera_actual = data; 
+            if (this.currentUser.preferidas.indexOf(this.cartelera_actual.id) > -1)
+              this.suscription = true;
+          }
         );
       }
     });
@@ -36,16 +44,15 @@ export class CarteleraViewComponent implements OnInit {
     return this.currentUser != null;
   }
 
-  isRol(rol: string) {
-    return this.currentUser.perfil == rol;
-  }
+  verSuscriptos(cartelera_id: number): void {
+    const dialogConfig = new MatDialogConfig();
 
-  get isSuscribed() {
-    return true;
-  }
+    dialogConfig.data = {
+        id: cartelera_id,
+        dialogRef: this.dialog
+    };
 
-  verSuscriptos() {
-    alert("suscriptos");
+    this.dialog.open(SeguidoresListComponent, dialogConfig);
   }
   
   updateCurrentUserInfo(cartelera_id, action){
@@ -64,18 +71,17 @@ export class CarteleraViewComponent implements OnInit {
   suscribirse(action) {
     if (action){
       this.usuarioService.suscribirCartelera(this.cartelera_actual, this.currentUser.username).subscribe(
-          data => { this.currentUser = data; }
+          data => { this.currentUser = data; this.suscription = true; }
         );
     }else{
       this.usuarioService.desuscribirCartelera(this.cartelera_actual, this.currentUser.username).subscribe(
-          data => { this.currentUser = data; }
+          data => { this.currentUser = data; this.suscription = false; }
         );
     }
     this.updateCurrentUserInfo(this.cartelera_actual.id, action);
   }
-
-  yaSuscrito(){
-    return (this.currentUser.preferidas.indexOf(this.cartelera_actual.id) > -1);
-  }
   
+  isRol(rol_name) {
+    return (this.currentUser.perfil == rol_name);
+  }
 }

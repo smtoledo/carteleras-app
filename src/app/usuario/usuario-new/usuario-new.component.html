@@ -26,12 +26,16 @@
       <label for="email">E-mail</label>
       <input type="email" class="form-control" id="email" name="email" [(ngModel)]="model.email" placeholder="E-mail" required>
     </div>
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-12" *ngIf="isAddMode; else elseDiv">
       <label for="perfil">Perfil</label>
       <select class="form-control custom-select" id="perfil" name="perfil" [(ngModel)]="model.perfil" required>
         <option *ngFor="let perfil of perfiles" [value]="perfil">{{perfil}}</option>
       </select>    
     </div>
+    <ng-template #elseDiv>
+      <label for="perfil">Perfil</label>
+      <input type="perfil" class="form-control" id="perfil" name="perfil" [(ngModel)]="model.perfil" disabled>    
+    </ng-template>
 
   </div>
   <br>

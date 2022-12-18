@@ -13,10 +13,18 @@ export class UsuarioService {
     return this.http.get<User[]>(`${env.url}/usuarios`);
   }
 
+  getUsuario(id: string) {
+    return this.http.get<User>(`${env.url}/usuarios/`+id);
+  }
+
   crearUsuario(user: User){
+    debugger;
     return this.http.post<User>(`${env.url}/usuarios`, user);
   }
 
+  actualizarUsuario(user: User){
+    return this.http.put<User>(`${env.url}/usuarios`, user);
+  }
 
   /** ALUMNOS - suscripcion a carteleras */
 

@@ -3,12 +3,12 @@
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
   <div class="navbar-nav mr-auto">
       <a *ngIf="!isLoggedIn" class="nav-item nav-link active" routerLink="/login">Iniciar Sesión</a>
-      <a *ngIf="isLoggedIn && isAdmin" class="nav-item nav-link active" routerLink="cartelera/new">Nueva Cartelera</a>
-      <a *ngIf="isLoggedIn && isAdmin" class="nav-item nav-link active" routerLink="usuario/list">Usuarios</a>
+      <a *ngIf="isLoggedIn && (isRol('ADMINISTRADOR') || isRol('DOCENTE'))" class="nav-item nav-link active" routerLink="cartelera/new">Nueva Cartelera</a>
+      <a *ngIf="isLoggedIn && isRol('ADMINISTRADOR')" class="nav-item nav-link active" routerLink="usuario/list">Usuarios</a>
   </div>
   </div>
   <div class="mx-auto order-0">
-    <a class="navbar-brand mx-auto" href="#">CARTELERAS VIRTUALES</a>
+    <a class="navbar-brand mx-auto" href="#"><b>CARTELERAS VIRTUALES</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
         <span class="navbar-toggler-icon"></span>
     </button>

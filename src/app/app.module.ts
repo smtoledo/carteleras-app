@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor, TruncatePipe } from './_helpers';
+import { MatDialogModule } from "@angular/material";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -10,6 +11,8 @@ import { CartelerasHomeComponent } from './carteleras-home/carteleras-home.compo
 import { AppRoutingModule } from './app-routing.module'
 import { CarteleraModule } from './cartelera/cartelera.module';
 import { UsuarioModule } from './usuario/usuario.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SeguidoresListComponent } from './seguidores-list/seguidores-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { UsuarioModule } from './usuario/usuario.module';
     LoginComponent,
     PageNotFoundComponent,
     CartelerasHomeComponent,
-    TruncatePipe
+    TruncatePipe,
+    SeguidoresListComponent/*,
+    DialogComponent*/
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,9 @@ import { UsuarioModule } from './usuario/usuario.module';
     UsuarioModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -67,4 +67,8 @@ export class CartelerasHomeComponent implements OnInit {
   get isLoggedIn() {
     return this.currentUser != null;
   }
+
+  isRol(rol_name) {
+    return (this.currentUser.perfil == rol_name);
+  }
 }

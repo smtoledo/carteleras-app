@@ -44,7 +44,7 @@ export class CarteleraService {
     //     return this.http.put<Cartelera>(`${env.url}/carteleras/`+cartelera.id+`/unsuscribe`, cartelera);
     // }
 
-    getSuscriptores(id: number){
+    getSuscriptores(id: string){
         return this.http.get<User[]>(`${env.url}/carteleras/`+id+`/interesados`);
     }
     
