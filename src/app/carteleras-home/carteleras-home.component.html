@@ -9,14 +9,11 @@
           </div>
           <div class="col-sm-2">
             <div class="float-right">
-              <!-- <input class="star" type="checkbox" title="bookmark page" *ngIf="isLoggedIn" id="fav" > -->
-                <!-- [checked]="userIsSubscribed({{id}})" (change)="subscribeUnsuscribe(fav.checked)" > -->
             </div>            
           </div>
         </div>
       </div>
       <div class="card-body">
-        <!--<h5 class="card-title">{{ cartelera.titulo }}</h5>-->
         <p class="card-text">{{ cartelera.descripcion | truncate:[100, '...'] }}</p>
         <a routerLink="cartelera/{{cartelera.id}}" *ngIf="isLoggedIn" class="btn btn-primary">Ver</a>
       </div>
@@ -27,7 +24,6 @@
 
 <div class="row" *ngIf="isLoggedIn && isRol('ALUMNO')">
   
-  <!-- <div class="col-sm-12 border border-dark" style="margin: 20px 0px 20px 0px; padding: 5px 0px 0px 15px;"><h3>Favoritos</h3></div> -->
   <div class="col-sm-6" *ngFor="let cartelera of cartelerasFavUsuario">
     <div class="card">
       <div class="card-header container-fluid">
@@ -43,7 +39,6 @@
         </div>
       </div>
       <div class="card-body">
-        <!--<h5 class="card-title">{{ cartelera.titulo }}</h5>-->
         <p class="card-text">{{ cartelera.descripcion | truncate:[100, '...'] }}</p>
         <a routerLink="cartelera/{{cartelera.id}}" *ngIf="isLoggedIn" class="btn btn-primary">Ver</a>
       </div>
@@ -52,7 +47,6 @@
   </div>
 </div>
 <div class="row" *ngIf="isLoggedIn">
-  <!-- <div class="col-sm-12 border border-dark" style="margin: 20px 0px 20px 0px; padding: 5px 0px 0px 15px;"><h3>Carteleras</h3></div> -->
   <div class="col-sm-6" *ngFor="let cartelera of cartelerasUsuario">
     <div class="card">
       <div class="card-header container-fluid">
@@ -62,14 +56,11 @@
           </div>
           <div class="col-sm-2">
             <div class="float-right">
-              <!-- <input class="star" type="checkbox" title="bookmark page" *ngIf="isLoggedIn" id="fav" > -->
-                <!-- [checked]="userIsSubscribed({{id}})" (change)="subscribeUnsuscribe(fav.checked)" > -->
             </div>            
           </div>
         </div>
       </div>
       <div class="card-body">
-        <!--<h5 class="card-title">{{ cartelera.titulo }}</h5>-->
         <p class="card-text">{{ cartelera.descripcion | truncate:[100, '...'] }}</p>
         <a routerLink="cartelera/{{cartelera.id}}" *ngIf="isLoggedIn" class="btn btn-primary">Ver</a>
       </div>

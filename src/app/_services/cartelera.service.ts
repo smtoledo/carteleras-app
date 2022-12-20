@@ -35,15 +35,6 @@ export class CarteleraService {
         return this.http.get<any>(`${env.url}/carteleras/`+id);
     }
 
-    /** -------- SUSCRIPTORES ------------------------------------------- */
-    // suscribirUsuario(cartelera: Cartelera){
-    //     return this.http.put<Cartelera>(`${env.url}/carteleras/`+cartelera.id+`/suscribe`, cartelera);
-    // }
-
-    // desuscribirUsuario(cartelera: Cartelera){
-    //     return this.http.put<Cartelera>(`${env.url}/carteleras/`+cartelera.id+`/unsuscribe`, cartelera);
-    // }
-
     getSuscriptores(id: string){
         return this.http.get<User[]>(`${env.url}/carteleras/`+id+`/interesados`);
     }

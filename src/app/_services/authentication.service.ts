@@ -23,9 +23,7 @@ export class AuthenticationService {
     login(username: string, password: string) {
         return this.http.post<any>(`${env.url}/auth`, { username, password })
             .pipe(map(credentials => {
-                // login successful si hay un token en la respuesta
                 if (credentials && credentials.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(credentials));
                     this.currentUserSubject.next(credentials);
                 }
@@ -35,12 +33,8 @@ export class AuthenticationService {
     }
 
     logout() {
-        // elimino las credenciales del localstorage al deslogearme
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
 
-    // hasRole(roles: string[]) {        
-    //     return (JSON.parse(localStorage.getItem('currentUser')))
-    // }
 }

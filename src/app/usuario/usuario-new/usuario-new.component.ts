@@ -36,11 +36,6 @@ export class UsuarioNewComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.usuarioService.crearUsuario(this.model).subscribe(
-    //   cartelera => {
-    //     this.model = new User();
-    //     this.router.navigate(['/usuario/list']);
-    //   });
     this.submitted = true;
     if (this.isAddMode){
       this.createUsuario();

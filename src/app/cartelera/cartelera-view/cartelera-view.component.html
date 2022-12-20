@@ -1,11 +1,8 @@
  <div class="container">
 
   <div class="row">
-    <!-- Navbar -->
     <nav *ngIf="isLoggedIn && cartelera_actual" class="navbar navbar-expand-lg navbar-dark bg-dark nav-fill w-100">
-      <!-- Container wrapper -->
       <div class="container-fluid">
-          <!-- Left links -->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" *ngIf="isRol('DOCENTE') || isRol('ADMINISTRADOR')">
@@ -27,25 +24,19 @@
             </li>
           </ul>
         </div>
-      <!-- </div> -->
     </nav>
   </div>
 
 
   <div class="row">
-    <!-- Post Content Column -->
     <div class="col-sm-12" *ngIf="cartelera_actual">
 
-      <!-- Title -->
       <h1 class="mt-4">{{cartelera_actual.titulo}}</h1>
-      <!-- Author -->
       <p class="lead">Publicado por <a href="#">{{cartelera_actual.autor.username}}</a></p>
       <hr>
-      <!-- Date/Time -->
       <p>Posted on {{cartelera_actual.alta | date:'medium'}}</p>
       <hr>
 
-      <!-- Post Content -->
       <p class="lead">{{cartelera_actual.descripcion}}</p>
       <hr>
     </div>
@@ -58,6 +49,4 @@
       </div>
     </div>
   </div>
-  <!-- /.row -->
 </div>
-<!-- /.container -->

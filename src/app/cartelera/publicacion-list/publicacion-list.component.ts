@@ -36,7 +36,7 @@ export class PublicacionListComponent implements OnInit {
                     this.publicaciones = data;
                 },
                 error => {
-                    this.error = 'No se pudieron cargar las ';
+                    this.error = 'No se pudieron cargar las publicaciones';
                     this.loading = false;
                     console.error(error);
                 }
