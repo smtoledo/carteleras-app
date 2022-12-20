@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import { User } from 'src/app/_models';
-import { CarteleraService } from '../_services';
+import { UsuarioService } from '../_services';
 
 @Component({
   selector: 'seguidores-list',
@@ -16,16 +16,17 @@ export class SeguidoresListComponent implements OnInit {
 	dialogRef: MatDialog;
 
   constructor(  @Inject(MAT_DIALOG_DATA) data: any,
-                private carteleraService: CarteleraService,
+                private usuarioService: UsuarioService,
                 private router: Router) { 
                   this.idCartelera = data.id;
-                  this.seguidores = data.dialogRef;
+                  this.dialogRef = data.dialogRef;
   }
 
   ngOnInit() {
-    this.carteleraService.getSuscriptores(this.idCartelera)
+    this.usuarioService.recuperarSuscriptores(this.idCartelera)
       .subscribe(
-        (seguidores) => this.seguidores = seguidores
+        (seguidores) => {this.seguidores = seguidores;
+        debugger;}
       );
   }
 

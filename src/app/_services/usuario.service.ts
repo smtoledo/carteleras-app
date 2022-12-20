@@ -36,4 +36,9 @@ export class UsuarioService {
       return this.http.put<User>(`${env.url}/usuarios/unsuscribe/`+cartelera.id+`/`+username, {});
   }
 
+  recuperarSuscriptores(cartelera_id: string){
+    debugger;
+    return this.http.get<User[]>(`${env.url}/suscriptores/`+cartelera_id);
+  }
+
 }

@@ -1,1 +1,20 @@
-<h1>Suscriptores</h1>
+<mat-dialog-content>
+	<h2>Alumnos que siguen esta cartelera: </h2>
+	<br>
+	<mat-list *ngIf="seguidores">
+		<mat-list-item *ngFor="let seguidor of seguidores">
+			<a>
+				<b>Nombre:</b> {{ seguidor.nombre }} {{ seguidor.apellido }} (<b>{{ seguidor.username }}</b>)
+			</a>
+            <br>
+		</mat-list-item>
+		<mat-list-item *ngIf="seguidores.length == 0">
+			<div>No hay seguidores para esta cartelera</div>
+			<br>
+		</mat-list-item>
+	</mat-list>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+	<button mat-button [mat-dialog-close]="true">Salir</button>
+</mat-dialog-actions>

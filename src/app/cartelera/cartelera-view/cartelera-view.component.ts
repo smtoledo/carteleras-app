@@ -44,15 +44,15 @@ export class CarteleraViewComponent implements OnInit {
     return this.currentUser != null;
   }
 
-  verSuscriptos(cartelera_id: number): void {
-    const dialogConfig = new MatDialogConfig();
+  verSuscriptos(cartelera_id: number) {
+        const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.data = {
-        id: cartelera_id,
-        dialogRef: this.dialog
-    };
-
-    this.dialog.open(SeguidoresListComponent, dialogConfig);
+        dialogConfig.data = {
+            id: cartelera_id,
+            dialogRef: this.dialog
+        };
+    
+        this.dialog.open(SeguidoresListComponent, dialogConfig);
   }
   
   updateCurrentUserInfo(cartelera_id, action){

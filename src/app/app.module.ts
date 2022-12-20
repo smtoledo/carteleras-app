@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor, TruncatePipe } from './_helpers';
-import { MatDialogModule } from "@angular/material";
+import { MatDialogModule, MatButtonModule, MatListModule } from "@angular/material";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -21,8 +21,7 @@ import { SeguidoresListComponent } from './seguidores-list/seguidores-list.compo
     PageNotFoundComponent,
     CartelerasHomeComponent,
     TruncatePipe,
-    SeguidoresListComponent/*,
-    DialogComponent*/
+    SeguidoresListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +32,12 @@ import { SeguidoresListComponent } from './seguidores-list/seguidores-list.compo
     HttpClientModule,
     AppRoutingModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatListModule  
+  ],
+  entryComponents: [
+    SeguidoresListComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

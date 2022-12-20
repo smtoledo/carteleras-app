@@ -24,7 +24,6 @@ export class AppComponent {
   }
 
   isRol(rol_name) {
-      debugger;
     return (this.currentUser.perfil == rol_name);
   }
 
