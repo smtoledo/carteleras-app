@@ -11,17 +11,20 @@
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
             <th scope="col">Perfil</th>
+            <th scope="col">Estado Cuenta</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr mdbTableCol *ngFor="let usuario of usuarios">
+          <tr mdbTableCol *ngFor="let usuario of usuarios; let i = index">
             <td>{{usuario.username}}</td>
             <td>{{usuario.nombre}}</td>
             <td>{{usuario.apellido}}</td>
             <td>{{usuario.perfil}}</td>
-            <td><button class='btn btn-success float-right' [routerLink]="['/usuario/edit/',usuario.id]">Editar</button></td>
-            <td><button class='btn btn-warning float-right' routerLink="/usuario/delete">Anular</button></td>
+            <td>{{usuario.cuentaActiva==1?'Activa':'Inactiva'}}</td>
+            <td><button class='btn btn-primary float-right' *ngIf="usuario.cuentaActiva==1" [routerLink]="['/usuario/edit/',usuario.id]">Editar</button></td>
+            <td><button class='btn btn-danger float-right' *ngIf="usuario.cuentaActiva==1" (click)="bajarCuenta(usuarios[i],true)">Anular</button>
+            <button class='btn btn-success float-right' *ngIf="usuario.cuentaActiva==0" (click)="bajarCuenta(usuarios[i],false)">Habilitar</button></td>
           </tr>
         </tbody>
       </table>

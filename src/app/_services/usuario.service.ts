@@ -41,4 +41,8 @@ export class UsuarioService {
     return this.http.get<User[]>(`${env.url}/suscriptores/`+cartelera_id);
   }
 
+  actualizarCuenta(user_id: number, value: number){
+    return this.http.put<User>(`${env.url}/usuarios/updateCuenta/`+user_id+`/`+value, {});
+}
+
 }

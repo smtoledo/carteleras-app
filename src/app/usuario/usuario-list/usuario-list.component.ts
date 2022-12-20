@@ -27,6 +27,7 @@ export class UsuarioListComponent implements OnInit {
     this.usuarioService.getUsuarios().subscribe(
             data => {
                 this.loading = false;
+                debugger;
                 this.usuarios = data;
             },
             error => {
@@ -37,4 +38,26 @@ export class UsuarioListComponent implements OnInit {
         )
   }
 
+  bajarCuenta(usuario: User, baja: boolean) {
+    if (baja){
+      if(confirm("Esta seguro que desea dar de baja esta cuenta de usuario?")) {
+        this.usuarioService.actualizarCuenta(usuario.id,0).subscribe(data=> {
+          let itemIndex = this.usuarios.findIndex(item => item.id == usuario.id);
+          let user_updated = usuario;
+          user_updated.cuentaActiva = 0;
+          this.usuarios[itemIndex] = user_updated;
+        })
+      }  
+    }else{
+      if(confirm("Esta seguro que desea habilitar esta cuenta de usuario?")) {
+          this.usuarioService.actualizarCuenta(usuario.id,1).subscribe(data=> {
+            let itemIndex = this.usuarios.findIndex(item => item.id == usuario.id);
+            let user_updated = usuario;
+            user_updated.cuentaActiva = 1;
+            this.usuarios[itemIndex] = user_updated;
+        })
+      }
+    }
+
+  }
 }

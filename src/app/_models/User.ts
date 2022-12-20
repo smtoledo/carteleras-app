@@ -8,6 +8,7 @@ export class User {
     apellido: string;
     perfil: string;
     token?: string;
+    cuentaActiva: number;
     carteleras?: number[];
     preferidas?: number[];
 }
