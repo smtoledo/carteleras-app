@@ -24,7 +24,7 @@ export class AppComponent {
   }
 
   isRol(rol_name) {
-    return (this.currentUser.perfil == rol_name);
+    return (this.currentUser.perfil.toUpperCase() == rol_name);
   }
 
   get isLoggedIn() {

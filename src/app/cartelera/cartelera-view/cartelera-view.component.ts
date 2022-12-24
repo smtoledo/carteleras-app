@@ -71,17 +71,23 @@ export class CarteleraViewComponent implements OnInit {
   suscribirse(action) {
     if (action){
       this.usuarioService.suscribirCartelera(this.cartelera_actual, this.currentUser.username).subscribe(
-          data => { this.currentUser = data; this.suscription = true; }
+          data => { 
+            this.currentUser = data; 
+            this.suscription = true; 
+          }
         );
     }else{
       this.usuarioService.desuscribirCartelera(this.cartelera_actual, this.currentUser.username).subscribe(
-          data => { this.currentUser = data; this.suscription = false; }
+          data => { 
+            this.currentUser = data; 
+            this.suscription = false; 
+          }
         );
     }
     this.updateCurrentUserInfo(this.cartelera_actual.id, action);
   }
   
   isRol(rol_name) {
-    return (this.currentUser.perfil == rol_name);
+    return (this.currentUser.perfil.toUpperCase() == rol_name);
   }
 }

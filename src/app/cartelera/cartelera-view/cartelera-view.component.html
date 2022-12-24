@@ -12,8 +12,8 @@
             <li class="nav-item"></li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page">
-                <button class="btn" type="button" *ngIf="!suscription" (click)="suscribirse(true)">Suscribirse</button>
-                <button class="btn" type="button" *ngIf="suscription" (click)="suscribirse(false)">Desuscribirse</button>
+                <button class="btn" type="button" *ngIf="(!suscription && isRol('ALUMNO'))" (click)="suscribirse(true)">Suscribirse</button>
+                <button class="btn" type="button" *ngIf="(suscription  && isRol('ALUMNO'))" (click)="suscribirse(false)">Desuscribirse</button>
                 </a>
             </li>
             <li class="nav-item"></li>
@@ -44,7 +44,6 @@
     <hr>
     <div class="row">
       <div class="col-sm-12">
-        <h3 class="my-4 ml-4">Publicaciones</h3>
         <app-publicacion-list></app-publicacion-list>
       </div>
     </div>

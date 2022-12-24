@@ -1,4 +1,5 @@
-<div class="row">
+<h3 class="my-4 ml-4" *ngIf="publicaciones">Publicaciones</h3>
+<div class="row" *ngIf="publicaciones">
   <div class="col-sm-6" *ngFor="let publicacion of publicaciones">
     <div class="card">
       <div class="card-header">{{publicacion.titulo}}</div>
@@ -8,4 +9,7 @@
     </div>
     <hr>
   </div>
+</div>
+<div class="row" *ngIf="!publicaciones">
+  <h5 class="my-4 ml-4">No hay publicaciones para esta cartelera.</h5>
 </div>

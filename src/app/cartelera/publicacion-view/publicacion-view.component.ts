@@ -66,6 +66,6 @@ export class PublicacionViewComponent implements OnInit {
   }
   
   isRol(rol_name) {
-    return (this.currentUser.perfil == rol_name);
+    return (this.currentUser.perfil.toUpperCase() == rol_name);
   }
 }
