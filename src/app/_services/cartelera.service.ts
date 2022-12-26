@@ -23,9 +23,9 @@ export class CarteleraService {
         return this.http.get<Cartelera[]>(`${env.url}/carteleras_fav_usuario`);
     }
 
-    getTiposCartelera(): Observable<string[]> {
-        return this.http.get<string[]>(`${env.url}/tipos_cartelera`);
-    }
+    // getTiposCartelera(): Observable<string[]> {
+    //     return this.http.get<string[]>(`${env.url}/tipos_cartelera`);
+    // }
 
     crearCartelera(cartelera: Cartelera){
         return this.http.post<Cartelera>(`${env.url}/carteleras`, cartelera);
